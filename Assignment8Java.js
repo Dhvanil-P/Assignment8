@@ -1,37 +1,32 @@
-/*
-     91.461 Assignment 8: Using the jQuery Validation Plugin and jQueryUI Tabbed Widget
-     Mihir Patel, UMass Lowell Computer Science, mihir_patel@student.uml.edu
-     Created on November 24, 2014
-     I have received helpe from Takyiu Lo.
-     This webpage will get a range of multiplication table and creates it to new tabs. */
+
 $(document).ready(function() {
     var tabs = $("#tabs").tabs();
     /* Validator */
     $.validator.addMethod('GreaterThanStartRow', function(value, element, param) {
-        if (pTwo.value === "") {
+        if (numTwo.value === "") {
             return true;
         }
-        return parseInt(pTwo.value) >= parseInt(pOne.value);
+        return parseInt(numTwo.value) >= parseInt(numOne.value);
     }, "The Last row must be greater than the First row.");
     $.validator.addMethod('GreaterThanStartColumn', function(value, element, param) {
-        return parseInt(pFour.value) >= parseInt(pThree.value);
+        return parseInt(numFour.value) >= parseInt(numThree.value);
     }, "The Last column must be greater than the Start column.");
     $('#form').validate({
         rules: {
-            pOne: {
+            numOne: {
                 required: true,
                 digits: true
             },
-            pTwo: {
+            numTwo: {
                 required: true,
                 digits: true,
                 GreaterThanStartRow: true
             },
-            pThree: {
+            numThree: {
                 required: true,
                 digits: true
             },
-            pFour: {
+            numFour: {
                 required: true,
                 digits: true,
                 GreaterThanStartColumn: true
@@ -54,38 +49,37 @@ $(document).ready(function() {
     function crTable(nextTabNo) {
         /* getting the four values from the user */
         /* putting a "+" to treat the value as a number instead of string */
-        var pOne = +document.getElementById("pOne").value;
-        var pTwo = +document.getElementById("pTwo").value;
-        var pThree = +document.getElementById("pThree").value;
-        var pFour = +document.getElementById("pFour").value;
+        var numOne = +document.getElementById("numOne").value;
+        var numTwo = +document.getElementById("numTwo").value;
+        var numThree = +document.getElementById("numThree").value;
+        var numFour = +document.getElementById("numFour").value;
         /* get the reference for the preview */
         var preview = document.getElementById(nextTabNo);
         /* creates a <table> element and a <tbody> element */
         var tbl = document.createElement("table");
         var tblBody = document.createElement("tbody");
         /* creating all cells */
-        for (var i = pOne, ii = pTwo + 1; i <= ii; ++i) {
+        for (var i = numOne, ii = numTwo + 1; i <= ii; ++i) {
             /* creates a table row */
             var row = document.createElement("tr");
-            for (var j = pThree, jj = pFour + 1; j <= jj; ++j) {
+            for (var j = numThree, jj = numFour + 1; j <= jj; ++j) {
                 /* creates a cell */
                 var cell = document.createElement("td");
                 var cellText;
                 /* give some style to the cell/table */
-                var cellStyle = "padding: 10px; color: #FFF;";
-                if (i == pOne && j == pThree) {
+                var cellStyle = "padding: 10px; color: black;";
+                if (i == numOne && j == numThree) {
                     cellText = document.createTextNode("");
-                    cell.setAttribute("style", cellStyle + "background-color: #FFF");
-                } else if (i == pOne) {
+                   cell.setAttribute("style", cellStyle + "background-color: white");
+                } else if (i == numOne) {
                     cellText = document.createTextNode(j - 1);
-                    cell.setAttribute("style", cellStyle + "background-color: #000");
-                } else if (j == pThree) {
+                    cell.setAttribute("style", cellStyle + "background-color: purple");
+                } else if (j == numThree) {
                     cellText = document.createTextNode(i - 1);
-                    cell.setAttribute("style", cellStyle + "background-color: #000");
+                   cell.setAttribute("style", cellStyle + "background-color: purple");
                 } else {
                     cellText = document.createTextNode((i - 1) * (j - 1));
-                    cell.setAttribute("style", cellStyle + "background-color: #FF0000");
-                }
+                   cell.setAttribute("style", cellStyle + "background-color: yellow");                }
                 /* add the text to cell */
                 cell.appendChild(cellText);
                 /* add the cell to row */
