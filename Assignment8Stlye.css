@@ -1,10 +1,20 @@
-/*Dhvanil Patel
-Dhvanil_patel@live.com
-UMass Lowell in course 91.461 GUI Programming I
-Started: 10/21/2014, last updated: 12/04/2014
-filename: assignment6Style.css
-*/
+/*
+  91.461 Assignment 8: Using the jQuery Validation Plugin and jQueryUI Tabbed Widget
+     Mihir Patel, UMass Lowell Computer Science, mihir_patel@student.uml.edu
+     Created on November 24, 2014 */
+/* styling the body, where to start */
+body {
+    background:#C5AE87;
+    color:#777;
+    font-family:'Droid Serif',serif;
+    margin:25px 100px;
+}
 
+/* give the header a different color and center h1*/
+h1 {
+    color:blue;
+    text-align:center;
+}
 
 /* give the text in form a different color */
 form {
@@ -28,15 +38,10 @@ input:focus {
 
 /* changing the appearance of the button */
 button {
-    width:100px;
-    height:30px;
-    text-align:center;
-    color:#000;
-    font-size:14px;
-}
-/*Making filedset float to left*/
-fieldset {
-    float:left;
+    margin:20px;
+    border:2px solid #dadada;
+    padding:0 10px;
+    font-size: 20px;
 }
 
 /* changing the appearance of the focus of thebutton */
@@ -46,11 +51,18 @@ button:focus {
     box-shadow:0 0 10px #9ecaed;
 }
 
+/* error message to red */
+.my-error-class {
+    color:red;
+}
 
+/* valid message to green */
+.my-valid-class {
+    color:#0C0;
+}
 
 /* I used this to format my tabs. */
 /* http://keith-wood.name/uitabs.html#tabs-nobg  */
-
 #tabs {
     background:#FFE5CC;
     border:none;
